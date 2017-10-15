@@ -1,0 +1,29 @@
+
+# rasa
+docker run -p 5000:5000 rasa/rasa_nlu:latest-full
+
+# grakn
+
+Use Grakn:
+
+// sudo kill $(sudo lsof -t -i:4567)
+
+
+docker pull graknlabs/grakn
+docker run -dt -v $(pwd)/db/:/grakn/db/ -p 4567:4567  -p 9042:9042 -p 9160:9160 --name GRAKN graknlabs/grakn
+Import the basic genealogy dataset from our tutorial:
+
+docker exec -it GRAKN /grakn/bin/graql.sh -f /grakn/examples/basic-genealogy.gql
+Visit Grakn Visualiser: http://localhost:4567/
+Run Graql shell: docker exec -it GRAKN /grakn/bin/graql.sh
+
+For Trumpworld pre-loaded image:
+
+docker pull graknlabs/grakn:trumpworld
+docker run -dt -p 4567:4567 graknlabs/grakn:trumpworld
+then visit the Visualiser
+
+Import another dataset:
+
+docker exec -it GRAKN ls /grakn/examples
+docker exec -it GRAKN /grakn/bin/graql.sh -f /grakn/examples/[DATASET].gql -k "example"
