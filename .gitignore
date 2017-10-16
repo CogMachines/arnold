@@ -64,3 +64,9 @@ fabric.properties
 # Maven
 log/
 target/
+
+# Cocoapods
+Pods
+
+# Docker
+db
