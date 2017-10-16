@@ -43,7 +43,7 @@ class ViewController: NSViewController {
 
     @objc func serverTextFieldAction() {
 		let text = serverTextField.stringValue
-		print("server: \(text)")
+		//print("server: \(text)")
 		ServerSettings.sharedInstance.server = text
 	}
 	
@@ -52,7 +52,7 @@ class ViewController: NSViewController {
 		if text.isEmpty {
 			return
 		}
-		print("request:  \(text)")
+		//print("request:  \(text)")
 		
 		let appendText = "\(text)\n"
         historyTextView.appendBold(string: appendText)
@@ -71,13 +71,8 @@ class ViewController: NSViewController {
 	}
 
 	func sendText(text: String) {
-		var dict = Dictionary<String, AnyObject>()
-        dict["command"] = text as AnyObject
-		
-		// convert dictionary to json data
-        let data = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
-		
-		// create a POST request
+        
+		// Create the request
 		let server = ServerSettings.sharedInstance.server
 		let url: URL! = URL(string: server)
 		if url == nil {
@@ -86,32 +81,36 @@ class ViewController: NSViewController {
 			return
 		}
         
-        Alamofire.request(server).responseJSON { response in
-            print("Request: \(String(describing: response.request))")   // original url request
-            print("Response: \(String(describing: response.response))") // http url response
-            print("Result: \(response.result)")                         // response serialization result
-            
-            if let json = response.result.value {
-                print("JSON: \(json)") // serialized json response
-            }
-            
-            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                print("Data: \(utf8Text)") // original server data as UTF8 string
-            }
+        // Add the parameters
+        let parameters: Parameters = [
+            "foo": [1,2,3],
+            "bar": [
+                "baz": "qux"
+            ]
+        ]
+        
+        Alamofire.request(url,
+                          method: .get)
+            .validate()
+            .responseData { response in
+                debugPrint("All Response Info: \(response)")
         }
         
-//        var request = URLRequest(url: url!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 15)
-//        request.httpMethod = "POST"
-//        request.httpBody = data
-//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//        Alamofire.request(url,
+//                          method: .get,
+//                          parameters: parameters,
+//                          encoding: JSONEncoding.default).responseString { response in
 //
-//        // execute the POST request
-//        NetworkManager.sharedInstance.execute(request: request) { (result: NetworkManagerResult) -> Void in
-//            switch result {
-//            case let .Success(data):
-//                self.showSuccessData(data: data)
-//            case let .Failure(error):
-//                self.showFailure(error: error)
+//            print("Request: \(String(describing: response.request))")   // original url request
+//            print("Response: \(String(describing: response.response))") // http url response
+//            print("Result: \(response.result)")                         // response serialization result
+//
+//            if let json = response.result.value {
+//                print("JSON: \(json)") // serialized json response
+//            }
+//
+//            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+//                print("Data: \(utf8Text)") // original server data as UTF8 string
 //            }
 //        }
 	}

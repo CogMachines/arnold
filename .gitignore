@@ -70,3 +70,7 @@ Pods
 
 # Docker
 db
+
+#XCode
+xcuserdata
+

@@ -8,7 +8,18 @@ Use Grakn:
 
 // sudo kill $(sudo lsof -t -i:4567)
 
+# Upload training data
+curl -X POST -d "@./testData.json" "localhost:5000/train?project=testBot"
 
+# Query
+curl -XPOST localhost:5000/parse -d '{"q":"I am looking for Chinese food", "project":"my_restaurant_search_bot"}'
+curl -XPOST localhost:5000/parse -d '{"q":"I am looking for Chinese food", "project":"my_restaurant_search_bot", "model":<model_XXXXXX>}'
+
+# Docker bash
+docker exec -it 6f28a899a3a9 bash
+
+
+# GRAKN
 docker pull graknlabs/grakn
 docker run -dt -v $(pwd)/db/:/grakn/db/ -p 4567:4567  -p 9042:9042 -p 9160:9160 --name GRAKN graknlabs/grakn
 Import the basic genealogy dataset from our tutorial:

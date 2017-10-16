@@ -18,14 +18,15 @@ class ServerSettings {
 	
 	var server: String {
 		get {
-            var returnValue: String? = UserDefaults.standard.object(forKey: "the-server") as? String
-			if returnValue == nil {
-				returnValue = "https://localhost:8334/graph/123/command"
-			}
-			return returnValue!
+            //var returnValue: String? = UserDefaults.standard.object(forKey: "rasa") as? String
+			//if returnValue == nil {
+				return "http://localhost:5000/version"
+			//}
+			//return returnValue!
 		}
+        
 		set (newValue) {
-            UserDefaults.standard.set(newValue, forKey: "the-server")
+            UserDefaults.standard.set(newValue, forKey: "rasa")
             UserDefaults.standard.synchronize()
 		}
 	}
