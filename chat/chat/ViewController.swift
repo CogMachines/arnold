@@ -11,6 +11,7 @@ import Cocoa
 
 // Frameworks
 import Alamofire
+import ApiAI
 
 class ViewController: NSViewController {
 	@IBOutlet var serverTextField: NSTextField!
@@ -65,19 +66,44 @@ class ViewController: NSViewController {
 		}
 	}
 	
-	func showReply(replyText: String) {
+	func showReply(_ replyText: String) {
 		let appendText = "\(replyText)\n\n"
         historyTextView.append(string: appendText)
 	}
 
 	func sendText(text: String) {
         
+        // Request using text (assumes that speech recognition / ASR is done using a third-party library, e.g. AT&T)
+        let appDelegate = NSApplication.shared.delegate as! AppDelegate
+        if let api = appDelegate.apiAI {
+            
+            if let request = api.textRequest() {
+                
+                request.query = text
+            
+                request.setMappedCompletionBlockSuccess({ (request, response) in
+                    if let response = response as? AIResponse {
+                        if let messages = response.result.fulfillment.messages {
+                            let message = messages[0]
+                            if let text = message["speech"] as? String {
+                                self.showReply(text)
+                            }
+                        }
+                    }
+                }, failure: { (request, error) in
+                })
+                
+                api.enqueue(request)
+            }
+        }
+        
+        #if false
 		// Create the request
 		let server = ServerSettings.sharedInstance.server
 		let url: URL! = URL(string: server)
 		if url == nil {
 			print("error invalid url \(url)")
-            showReply(replyText: "error invalid url \(url)")
+            self.showReply("error invalid url \(url)")
 			return
 		}
         
@@ -113,25 +139,26 @@ class ViewController: NSViewController {
 //                print("Data: \(utf8Text)") // original server data as UTF8 string
 //            }
 //        }
+        #endif
 	}
 
 	func showSuccessData(data: Data) {
 		let responseTextOrNil: String? = String(data: data, encoding: .utf8)
 		if responseTextOrNil == nil {
 			print("error response data is not utf8")
-            showReply(replyText: "error response data is not utf8")
+            self.showReply("error response data is not utf8")
 			return
 		}
 		
 		let responseText: String = responseTextOrNil!
 		print("response: \(responseText)")
-        showReply(replyText: responseText)
+        self.showReply(responseText)
 	}
 
 	func showFailure(error: Error) {
 		let responseText: String = error.localizedDescription
 		print("response: \(responseText)")
-        showReply(replyText: responseText)
+        self.showReply(responseText)
 	}
 
 }

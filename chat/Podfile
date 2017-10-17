@@ -7,6 +7,7 @@ target 'chat' do
 	inhibit_all_warnings!
 	
 	pod 'Alamofire', '~> 4.5'
+	pod 'ApiAI'
 end
 
 
