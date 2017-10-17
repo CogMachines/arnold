@@ -21,7 +21,7 @@ import intents.RandomIntent;
 
 public class Main {
 
-    private static final String MOVIE_KEYSPACE = "movie";
+    private static final String KEYSPACE = "grakn";
 
     private static GraknGraph mGraph;
 
@@ -29,7 +29,7 @@ public class Main {
 
         disableInternalLogs();
 
-        mGraph = Grakn.factory(Grakn.DEFAULT_URI, MOVIE_KEYSPACE).getGraph();
+        mGraph = Grakn.factory(Grakn.DEFAULT_URI, KEYSPACE).getGraph();
 
         port(8080);
 
