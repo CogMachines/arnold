@@ -74,4 +74,6 @@ db
 #XCode
 xcuserdata
 
-Logs
+# Rasa
+logs
+projects

@@ -73,6 +73,7 @@ class ViewController: NSViewController {
 
 	func sendText(text: String) {
         
+        #if true
         // Request using text (assumes that speech recognition / ASR is done using a third-party library, e.g. AT&T)
         let appDelegate = NSApplication.shared.delegate as! AppDelegate
         if let api = appDelegate.apiAI {
@@ -89,13 +90,16 @@ class ViewController: NSViewController {
                             
                             // Get the parameters
                             if let parameters = response.result.parameters as? [String: AIResponseParameter] {
+                                
+                                // Check for the first name
                                 if let givenName = parameters["given-name"]!.stringValue {
                                     print(givenName)
                                 }
-                            }
-                            
-                            if let lastName = response.result.parameters["last-name"] {
-                                print(lastName)
+                                
+                                // Check for the last name
+                                if let lastName = parameters["last-name"]!.stringValue {
+                                    print(lastName)
+                                }
                             }
                         }
                         
@@ -112,6 +116,7 @@ class ViewController: NSViewController {
                 api.enqueue(request)
             }
         }
+        #endif
         
         #if false
 		// Create the request
