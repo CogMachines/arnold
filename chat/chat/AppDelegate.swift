@@ -17,10 +17,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
 
+        // Set up DialogFlow (api.ai)
         self.apiAI = ApiAI()
-        
         let configuration = AIDefaultConfiguration()
-        configuration.clientAccessToken = "5d52450340134aac84e5476af5d00264"
+        configuration.clientAccessToken = "5777b2dede834b2ab509e29b450c429d"
         self.apiAI.configuration = configuration;
     }
 

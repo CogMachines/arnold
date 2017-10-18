@@ -1,0 +1,86 @@
+insert
+
+# Entities
+
+  person sub entity
+    has gender
+    has birth-date
+    has death-date
+    has identifier
+    has firstname
+    has middlename
+    has surname
+    plays spouse
+    plays parent
+    plays child
+    plays sibling;
+        
+    gender sub resource datatype string;
+    birth-date sub "date";
+    death-date sub "date";
+    name sub resource datatype string;
+    firstname sub name;
+    middlename sub name;
+    surname sub name;
+    identifier sub resource datatype string;
+    
+  event sub entity
+    is-abstract
+    has degree
+    has confidence
+    has "date"
+    has identifier
+    has notes
+    plays conclusion
+    plays happening;
+    
+  wedding sub event;
+    
+  funeral sub event
+    has death-date;
+        
+  christening sub event
+    has birth-date;
+    
+  birth sub event
+    has firstname
+    has middlename
+    has surname
+    has gender
+    has birth-date;
+        
+  death sub event
+    has death-date;   	    
+    
+## Relations
+    
+  relatives sub relation
+    is-abstract;
+    
+  marriage sub relatives
+    relates spouse1
+    relates spouse2
+    relates husband
+    relates wife
+    has "date";
+    
+  spouse sub role;
+  spouse1 sub spouse;
+  spouse2 sub spouse;
+  husband sub spouse;   
+  wife sub spouse;
+    
+  parentship sub relatives
+    relates parent
+    relates mother
+    relates father
+    relates child
+    relates son
+    relates daughter;
+  
+  parent sub role;
+  mother sub parent;
+  father sub parent;
+  child sub role;
+  son sub child;
+  daughter sub child;

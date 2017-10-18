@@ -83,6 +83,22 @@ class ViewController: NSViewController {
             
                 request.setMappedCompletionBlockSuccess({ (request, response) in
                     if let response = response as? AIResponse {
+                        
+                        let action = response.result.action
+                        if action == "query_person" {
+                            
+                            // Get the parameters
+                            if let parameters = response.result.parameters as? [String: AIResponseParameter] {
+                                if let givenName = parameters["given-name"]!.stringValue {
+                                    print(givenName)
+                                }
+                            }
+                            
+                            if let lastName = response.result.parameters["last-name"] {
+                                print(lastName)
+                            }
+                        }
+                        
                         if let messages = response.result.fulfillment.messages {
                             let message = messages[0]
                             if let text = message["speech"] as? String {
