@@ -1,10 +1,7 @@
-//
-//  AppDelegate.swift
-//  chat
-//
-//  Created by Gene on 10/16/17.
-//  Copyright © 2017 Semitone, Inc. All rights reserved.
-//
+// CogMachines, LLC. Confidential Information.
+// TM and (c) 2017-present Semitone Inc.  All Rights Reserved.
+// Reproduction in whole or in part without prior written permission of a
+// duly authorized representative is prohibited.
 
 import Cocoa
 
@@ -28,3 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 }
 
+// CogMachines, LLC. Confidential Information.
+// TM and (c) 2017-present Semitone Inc.  All Rights Reserved.
+// Reproduction in whole or in part without prior written permission of a
+// duly authorized representative is prohibited.

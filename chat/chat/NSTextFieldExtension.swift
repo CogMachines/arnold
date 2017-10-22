@@ -1,10 +1,7 @@
-//
-//  NSTextFieldExtension.swift
-//  ChatClient
-//
-//  Created by Simon Strandgaard on 09-01-15.
-//  Copyright (c) 2015 Simon Strandgaard. All rights reserved.
-//
+// CogMachines, LLC. Confidential Information.
+// TM and (c) 2017-present Semitone Inc.  All Rights Reserved.
+// Reproduction in whole or in part without prior written permission of a
+// duly authorized representative is prohibited.
 
 import Cocoa
 
@@ -33,3 +30,8 @@ let attributedString = NSAttributedString(string: string, attributes:nil )
         self.scrollToEndOfDocument(nil)
 	}
 }
+
+// CogMachines, LLC. Confidential Information.
+// TM and (c) 2017-present Semitone Inc.  All Rights Reserved.
+// Reproduction in whole or in part without prior written permission of a
+// duly authorized representative is prohibited.

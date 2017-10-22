@@ -1,14 +1,13 @@
-//
-//  ServerSettings.swift
-//  ChatClient
-//
-//  Created by Simon Strandgaard on 10-01-15.
-//  Copyright (c) 2015 Simon Strandgaard. All rights reserved.
-//
+// CogMachines, LLC. Confidential Information.
+// TM and (c) 2017-present Semitone Inc.  All Rights Reserved.
+// Reproduction in whole or in part without prior written permission of a
+// duly authorized representative is prohibited.
 
+// MacOs
 import Foundation
 
 class ServerSettings {
+        
 	class var sharedInstance : ServerSettings {
 		struct Static {
 			static let instance : ServerSettings = ServerSettings()
@@ -31,3 +30,8 @@ class ServerSettings {
 		}
 	}
 }
+
+// CogMachines, LLC. Confidential Information.
+// TM and (c) 2017-present Semitone Inc.  All Rights Reserved.
+// Reproduction in whole or in part without prior written permission of a
+// duly authorized representative is prohibited.
