@@ -1,12 +1,12 @@
-//
-//  FastTextTests.swift
-//  FastTextTests
-//
-//  Created by Gene Ragan on 10/21/17.
-//  Copyright © 2017 CogMachines. All rights reserved.
-//
+// CogMachines, LLC. Confidential Information.
+// TM and (c) 2017-present Semitone Inc.  All Rights Reserved.
+// Reproduction in whole or in part without prior written permission of a
+// duly authorized representative is prohibited.
 
+// MaxOS
 import XCTest
+
+// Local
 @testable import FastText
 
 class FastTextTests: XCTestCase {
@@ -21,16 +21,39 @@ class FastTextTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testTrain() {
+        
+        var trainingData = [TrainingData]()
+        
+        var trainingItem = TrainingData(label: "query", data: "Do you know Melanie?")
+        trainingData.append(trainingItem)
+        
+        trainingItem = TrainingData(label: "query", data: "Do you know Reggie?")
+        trainingData.append(trainingItem)
+
+        let fastText = FastText()
+        let results = fastText.trainSupervised(trainingData)
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testPredict() {
+        
+        var trainingData = [TrainingData]()
+        
+        var trainingItem = TrainingData(label: "query", data: "Do you know Melanie?")
+        trainingData.append(trainingItem)
+        
+        trainingItem = TrainingData(label: "query", data: "Do you know Reggie?")
+        trainingData.append(trainingItem)
+        
+        let fastText = FastText()
+        let modelPath = fastText.trainSupervised(trainingData)
+        
+        fastText.predict(modelPath, text: "Do you know Melanie?")
     }
     
 }
+
+// CogMachines, LLC. Confidential Information.
+// TM and (c) 2017-present Semitone Inc.  All Rights Reserved.
+// Reproduction in whole or in part without prior written permission of a
+// duly authorized representative is prohibited.

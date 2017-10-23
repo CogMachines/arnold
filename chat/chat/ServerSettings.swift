@@ -3,7 +3,7 @@
 // Reproduction in whole or in part without prior written permission of a
 // duly authorized representative is prohibited.
 
-// MacOs
+// MacOS
 import Foundation
 
 class ServerSettings {

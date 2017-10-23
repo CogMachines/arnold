@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D5974D71F9C261500227F15 /* TrainingData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5974D51F9C261500227F15 /* TrainingData.m */; };
+		3D024B421F9C443500C44701 /* TrainingData.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D5974D61F9C261500227F15 /* TrainingData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3D5974D71F9C261500227F15 /* TrainingData.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3D5974D51F9C261500227F15 /* TrainingData.mm */; };
 		3D6C3F5D1F9BEDDF00ADF82A /* FastText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6C3F531F9BEDDF00ADF82A /* FastText.framework */; };
 		3D6C3F621F9BEDDF00ADF82A /* FastTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C3F611F9BEDDF00ADF82A /* FastTextTests.swift */; };
 		3D6C3F641F9BEDDF00ADF82A /* FastText.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D6C3F561F9BEDDF00ADF82A /* FastText.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -49,7 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3D5974D51F9C261500227F15 /* TrainingData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TrainingData.m; path = /Users/gragan/inprogress/cogmachines/arnold/FastText/FastText/TrainingData.m; sourceTree = "<absolute>"; };
+		3D5974D51F9C261500227F15 /* TrainingData.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = TrainingData.mm; path = /Users/gragan/inprogress/cogmachines/arnold/FastText/FastText/TrainingData.mm; sourceTree = "<absolute>"; };
 		3D5974D61F9C261500227F15 /* TrainingData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TrainingData.h; path = /Users/gragan/inprogress/cogmachines/arnold/FastText/FastText/TrainingData.h; sourceTree = "<absolute>"; };
 		3D6C3F531F9BEDDF00ADF82A /* FastText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FastText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D6C3F561F9BEDDF00ADF82A /* FastText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FastText.h; sourceTree = "<group>"; };
@@ -103,6 +104,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D5974D81F9C392C00227F15 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3D6C3FA31F9BF1A600ADF82A /* FastText-Bridging-Header.h */,
+				3D6C3F561F9BEDDF00ADF82A /* FastText.h */,
+				3D6C3F571F9BEDDF00ADF82A /* Info.plist */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
 		3D6C3F491F9BEDDF00ADF82A = {
 			isa = PBXGroup;
 			children = (
@@ -128,11 +139,9 @@
 				3D6C3F851F9BEE0900ADF82A /* Arguments.mm */,
 				3D6C3FA11F9BF19B00ADF82A /* FastTextWrapper.mm */,
 				3D6C3F841F9BEE0900ADF82A /* FastTextWrapper.h */,
-				3D6C3F561F9BEDDF00ADF82A /* FastText.h */,
-				3D6C3FA31F9BF1A600ADF82A /* FastText-Bridging-Header.h */,
-				3D5974D51F9C261500227F15 /* TrainingData.m */,
+				3D5974D51F9C261500227F15 /* TrainingData.mm */,
 				3D5974D61F9C261500227F15 /* TrainingData.h */,
-				3D6C3F571F9BEDDF00ADF82A /* Info.plist */,
+				3D5974D81F9C392C00227F15 /* Other Sources */,
 				3D6C3F6D1F9BEE0800ADF82A /* fasttext */,
 			);
 			path = FastText;
@@ -184,6 +193,7 @@
 				3D6C3F9A1F9BEE0900ADF82A /* Arguments.h in Headers */,
 				3D6C3F641F9BEDDF00ADF82A /* FastText.h in Headers */,
 				3D6C3F9C1F9BEE0900ADF82A /* FastTextWrapper.h in Headers */,
+				3D024B421F9C443500C44701 /* TrainingData.h in Headers */,
 				3D6C3F931F9BEE0900ADF82A /* dictionary.h in Headers */,
 				3D6C3F921F9BEE0900ADF82A /* args.h in Headers */,
 				3D6C3F901F9BEE0900ADF82A /* real.h in Headers */,
@@ -299,7 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D6C3F991F9BEE0900ADF82A /* vector.cc in Sources */,
-				3D5974D71F9C261500227F15 /* TrainingData.m in Sources */,
+				3D5974D71F9C261500227F15 /* TrainingData.mm in Sources */,
 				3D6C3F961F9BEE0900ADF82A /* matrix.cc in Sources */,
 				3D6C3FA21F9BF19B00ADF82A /* FastTextWrapper.mm in Sources */,
 				3D6C3F891F9BEE0900ADF82A /* fasttext.cc in Sources */,

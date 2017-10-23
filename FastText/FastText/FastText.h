@@ -13,6 +13,7 @@ FOUNDATION_EXPORT const unsigned char FastTextVersionString[];
 
 #import <FastText/Arguments.h>
 #import <FastText/FastTextWrapper.h>
+#import <FastText/TrainingData.h>
 
 // CogMachines, LLC. Confidential Information.
 // TM and (c) 2017-present Semitone Inc.  All Rights Reserved.

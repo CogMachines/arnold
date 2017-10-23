@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/gragan/inprogress/cogmachines/arnold/FastText/FastText/TrainingData.h">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/gragan/inprogress/cogmachines/arnold/FastText/FastText/TrainingData.m">
-   </FileRef>
-   <FileRef
       location = "group:chat.xcodeproj">
    </FileRef>
    <FileRef
