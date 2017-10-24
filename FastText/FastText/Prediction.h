@@ -6,18 +6,10 @@
 // MacOS
 #import <Foundation/Foundation.h>
 
-// Forward declarations
-@class Prediction;
-@class TrainingData;
+@interface Prediction : NSObject
 
-@interface FastText : NSObject
-
-- (nonnull NSString*) trainCbow:(nonnull NSArray<TrainingData*>*)data;
-- (nonnull NSString*) trainSkipGram:(nonnull NSArray<TrainingData*>*)data;
-- (nonnull NSString*) trainSupervised:(nonnull NSArray<TrainingData*>*)data;
-
-- (nonnull NSArray<Prediction*>*) predict:(nonnull NSString*)modelPath text:(nonnull NSString*)inText;
-
+@property (nonatomic, assign) NSString* label;
+@property (nonatomic, assign) double confidence;
 
 @end
 

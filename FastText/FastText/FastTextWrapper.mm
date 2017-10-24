@@ -23,6 +23,7 @@
 #import "fasttext/fasttext.h"
 
 // Local
+#import "Prediction.h"
 #import "TrainingData.h"
 
 enum class ModelName {
@@ -92,6 +93,8 @@ train:(ModelName)type data:(nonnull NSArray<TrainingData*>*)inData {
             args->minn = 0;
             args->maxn = 0;
             args->lr = 0.1;
+            
+            args->epoch = 500;
             break;
         }
     }
@@ -110,7 +113,6 @@ train:(ModelName)type data:(nonnull NSArray<TrainingData*>*)inData {
     args->input = dataURL.path.UTF8String;
 
     // Set the results location
-    //NSString* modelFileName = [NSString stringWithFormat:@"%@_%@", [[NSProcessInfo processInfo] globallyUniqueString], @"data.model"];
     NSURL* modelURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:@"data"]];
     args->output = modelURL.path.UTF8String;
     
@@ -121,46 +123,28 @@ train:(ModelName)type data:(nonnull NSArray<TrainingData*>*)inData {
     return [NSString stringWithFormat:@"%@.bin", modelURL.path];
 }
 
-- (void)
+- (NSArray<Prediction*>*)
 predict:(nonnull NSString*)modelPath text:(nonnull NSString*)inText {
     
+    // Make the prediction
     fasttext::FastText fasttext;
     fasttext.loadModel(std::string(modelPath.UTF8String));
     const std::string inTextString(inText.UTF8String);
     std::istringstream stringStream(inTextString.c_str()); 
     std::vector<std::pair<fasttext::real, std::string>> predictions;
     fasttext.predict(stringStream, 1, predictions);
-}
+    
+    // Populate the results
+    NSMutableArray* results = [NSMutableArray<Prediction*> new];
+    for (const auto& pred : predictions) {
+        Prediction* prediction = [Prediction new];
+        prediction.confidence = pred.first;
+        prediction.label = [NSString stringWithUTF8String: pred.second.c_str()];
+        [results addObject:prediction];
+    }
 
-//void predict(const std::vector<std::string>& args) {
-//    if (args.size() < 4 || args.size() > 5) {
-//        printPredictUsage();
-//        exit(EXIT_FAILURE);
-//    }
-//    int32_t k = 1;
-//    if (args.size() >= 5) {
-//        k = std::stoi(args[4]);
-//    }
-//
-//    bool print_prob = args[1] == "predict-prob";
-//    FastText fasttext;
-//    fasttext.loadModel(std::string(args[2]));
-//
-//    std::string infile(args[3]);
-//    if (infile == "-") {
-//        fasttext.predict(std::cin, k, print_prob);
-//    } else {
-//        std::ifstream ifs(infile);
-//        if (!ifs.is_open()) {
-//            std::cerr << "Input file cannot be opened!" << std::endl;
-//            exit(EXIT_FAILURE);
-//        }
-//        fasttext.predict(ifs, k, print_prob);
-//        ifs.close();
-//    }
-//
-//    exit(0);
-//}
+    return results;
+}
 
 @end
 

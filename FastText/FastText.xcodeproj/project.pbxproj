@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3D024B421F9C443500C44701 /* TrainingData.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D5974D61F9C261500227F15 /* TrainingData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3D323ECB1F9EBFFE00C371E1 /* Prediction.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D323EC91F9EBFFE00C371E1 /* Prediction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3D323ECC1F9EBFFE00C371E1 /* Prediction.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D323ECA1F9EBFFE00C371E1 /* Prediction.m */; };
 		3D5974D71F9C261500227F15 /* TrainingData.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3D5974D51F9C261500227F15 /* TrainingData.mm */; };
 		3D6C3F5D1F9BEDDF00ADF82A /* FastText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6C3F531F9BEDDF00ADF82A /* FastText.framework */; };
 		3D6C3F621F9BEDDF00ADF82A /* FastTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C3F611F9BEDDF00ADF82A /* FastTextTests.swift */; };
@@ -50,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D323EC91F9EBFFE00C371E1 /* Prediction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prediction.h; sourceTree = "<group>"; };
+		3D323ECA1F9EBFFE00C371E1 /* Prediction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Prediction.m; sourceTree = "<group>"; };
 		3D5974D51F9C261500227F15 /* TrainingData.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = TrainingData.mm; path = /Users/gragan/inprogress/cogmachines/arnold/FastText/FastText/TrainingData.mm; sourceTree = "<absolute>"; };
 		3D5974D61F9C261500227F15 /* TrainingData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TrainingData.h; path = /Users/gragan/inprogress/cogmachines/arnold/FastText/FastText/TrainingData.h; sourceTree = "<absolute>"; };
 		3D6C3F531F9BEDDF00ADF82A /* FastText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FastText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +143,8 @@
 				3D6C3F851F9BEE0900ADF82A /* Arguments.mm */,
 				3D6C3FA11F9BF19B00ADF82A /* FastTextWrapper.mm */,
 				3D6C3F841F9BEE0900ADF82A /* FastTextWrapper.h */,
+				3D323ECA1F9EBFFE00C371E1 /* Prediction.m */,
+				3D323EC91F9EBFFE00C371E1 /* Prediction.h */,
 				3D5974D51F9C261500227F15 /* TrainingData.mm */,
 				3D5974D61F9C261500227F15 /* TrainingData.h */,
 				3D5974D81F9C392C00227F15 /* Other Sources */,
@@ -193,6 +199,7 @@
 				3D6C3F9A1F9BEE0900ADF82A /* Arguments.h in Headers */,
 				3D6C3F641F9BEDDF00ADF82A /* FastText.h in Headers */,
 				3D6C3F9C1F9BEE0900ADF82A /* FastTextWrapper.h in Headers */,
+				3D323ECB1F9EBFFE00C371E1 /* Prediction.h in Headers */,
 				3D024B421F9C443500C44701 /* TrainingData.h in Headers */,
 				3D6C3F931F9BEE0900ADF82A /* dictionary.h in Headers */,
 				3D6C3F921F9BEE0900ADF82A /* args.h in Headers */,
@@ -312,6 +319,7 @@
 				3D5974D71F9C261500227F15 /* TrainingData.mm in Sources */,
 				3D6C3F961F9BEE0900ADF82A /* matrix.cc in Sources */,
 				3D6C3FA21F9BF19B00ADF82A /* FastTextWrapper.mm in Sources */,
+				3D323ECC1F9EBFFE00C371E1 /* Prediction.m in Sources */,
 				3D6C3F891F9BEE0900ADF82A /* fasttext.cc in Sources */,
 				3D6C3F8A1F9BEE0900ADF82A /* utils.cc in Sources */,
 				3D6C3F871F9BEE0900ADF82A /* main.cc in Sources */,

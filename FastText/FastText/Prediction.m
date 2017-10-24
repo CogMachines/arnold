@@ -3,21 +3,21 @@
 // Reproduction in whole or in part without prior written permission of a
 // duly authorized representative is prohibited.
 
-// MacOS
-#import <Foundation/Foundation.h>
+// Self
+#import "Prediction.h"
 
-// Forward declarations
-@class Prediction;
-@class TrainingData;
 
-@interface FastText : NSObject
+@implementation Prediction
 
-- (nonnull NSString*) trainCbow:(nonnull NSArray<TrainingData*>*)data;
-- (nonnull NSString*) trainSkipGram:(nonnull NSArray<TrainingData*>*)data;
-- (nonnull NSString*) trainSupervised:(nonnull NSArray<TrainingData*>*)data;
-
-- (nonnull NSArray<Prediction*>*) predict:(nonnull NSString*)modelPath text:(nonnull NSString*)inText;
-
+- (instancetype)
+init {
+    self = [super init];
+    if (self) {
+        self.confidence = 0.0;
+        self.label = @"Unknown";
+    }
+    return self;
+}
 
 @end
 

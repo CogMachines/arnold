@@ -13,6 +13,7 @@ FOUNDATION_EXPORT const unsigned char FastTextVersionString[];
 
 #import <FastText/Arguments.h>
 #import <FastText/FastTextWrapper.h>
+#import <FastText/Prediction.h>
 #import <FastText/TrainingData.h>
 
 // CogMachines, LLC. Confidential Information.
